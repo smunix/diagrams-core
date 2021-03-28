@@ -7,18 +7,18 @@
   outputs = { self, nixpkgs, flake-utils, smunix-monoid-extras, ... }:
     with flake-utils.lib;
     with nixpkgs.lib;
-    eachSystem [ "x86_64-darwin" ] (system:
+    eachSystem [ "x86_64-linux" ] (system:
       let version = "${substring 0 8 self.lastModifiedDate}.${self.shortRev or "dirty"}";
           overlay = self: super:
             with self;
             with haskell.lib;
-            with haskellPackages;
+            with haskellPackages.extend(self: super: {
+              inherit (smunix-monoid-extras.packages.${system}) monoid-extras;              
+            });
             {
               diagrams-core = {
-                  package = overrideCabal (callCabal2nix "diagrams-core" ./. {
-                    inherit (smunix-monoid-extras.packages.${system}) monoid-extras;
-                  }) (o: { version = "${o.version}-${version}"; });
-                };
+                package = overrideCabal (callCabal2nix "diagrams-core" ./. {}) (o: { version = "${o.version}-${version}"; });
+              };
             };
           overlays = [ overlay ];
       in
