@@ -32,10 +32,45 @@
         "type": "github"
       }
     },
-    "monoid-extras": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1616891080,
+        "narHash": "sha256-+oz+G+QPzH17FSPz3BLVfRCZMdkWyy0EdXAmXXRqhYw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "3a498ff0f257024fb17067ce4ab9d7b00b50230e",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1616866564,
+        "narHash": "sha256-UnHMztF0fd4XPJlxesLgPNx2WKeHpqNtvff7USXOH4s=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1433dad051b601261d39de1bbb63dc030018efd7",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "smunix-monoid-extras": "smunix-monoid-extras"
+      }
+    },
+    "smunix-monoid-extras": {
       "inputs": {
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1616899059,
@@ -50,41 +85,6 @@
         "ref": "fix.diagrams",
         "repo": "monoid-extras",
         "type": "github"
-      }
-    },
-    "nixpkgs": {
-      "locked": {
-        "lastModified": 1616866564,
-        "narHash": "sha256-UnHMztF0fd4XPJlxesLgPNx2WKeHpqNtvff7USXOH4s=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1433dad051b601261d39de1bbb63dc030018efd7",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1616891080,
-        "narHash": "sha256-+oz+G+QPzH17FSPz3BLVfRCZMdkWyy0EdXAmXXRqhYw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3a498ff0f257024fb17067ce4ab9d7b00b50230e",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
-    "root": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "monoid-extras": "monoid-extras",
-        "nixpkgs": "nixpkgs_2"
       }
     }
   },
